@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+   <head>
+      <meta charset="UTF-8">
+      <title>The bidding game</title>
+      <link rel="stylesheet" href="/static/css/style.css">
+   </head>
+   <body>
+      <div class="content-wrap">
+         <h1>The bidding game</h1>
+         <div style="text-align: center;">
+            <form action="" method = "POST">
+               <!-- <label for="start_new">Start a new game</label> -->
+               <input class="btn btn-primary" type="submit" name="start_button" value="Restart" >
+            </form>
+         </div>
+         <br>
+         <div class="scorebar">
+            <div class="left-sec">
+               <p>Player1's balance: <span class="player-score">100</span></p>
+            </div>
+            <div class="right-sec">
+               <p>Player2's balance: <span class="computer-score">100</span></p>
+            </div>
+         </div>
+         <div class="game-board">
+            <!--     <div class="col-4">
+               <div class="rock"></div>
+               </div>
+               <div class="col-4">
+               <div class="paper"></div>
+               </div>
+               <div class="col-4">
+               <div class="scissors"></div>
+               </div> -->
+            <div class="light-wrap padded">
+               <div class="game-links clearfix">
+                  <ul class="social-component hide pull-right" style="margin-left: 0px; display: block;">
+                  </ul>
+               </div>
+               <div class="js-tab-content hide" style="display: block;">
+                  <div class="content game-tab active">
+                     <div id="game-grid-1" class="clearfix" style="clear: both;">
+                        <div class="players">
+                           <table style="margin:auto;">
+                              <tbody>
+                                 <tr class="trophy">
+                                    <td hacker-id="1711445"></td>
+                                    <td></td>
+                                    <td hacker-id="-100" style="height: 0px; position: relative;"></td>
+                                 </tr>
+                                 <tr class="avatar">
+                                    <td hacker-id="1711445" style="text-align: center; padding: 0 10px;"><img src="data:image/jpeg;base64,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" height="30" width="30" class="circle"></td>
+                                    <td style="padding: 0 10px;"><i>vs</i></td>
+                                    <td hacker-id="-100" style="text-align: center; padding: 0 10px;"><img src="data:image/jpeg;base64,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" height="30" width="30" class="circle"></td>
+                                 </tr>
+                                 <tr class="avatar text-center">
+                                    <td hacker-id="1711445">Player1</td>
+                                    <td></td>
+                                    <td hacker-id="-100">Player2</td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                        <div class="animation">
+                           <style>
+                              .game-grid p {
+                              margin: 0px;
+                              }
+                              h3 {
+                              margin: 0px;
+                              }
+                              .m {
+                              text-align: center !important;
+                              }
+                              .playgame-row {
+                              position: fixed;
+                              }
+                              .playgame-row .btn {
+                              margin-top: 70px;
+                              z-index: 999;
+                              }
+                              .game-message {
+                              font-weight: bold;
+                              }
+                           </style>
+                           <div class="game-grid" style="display: block; margin: auto; border-radius: 10px;">
+                              <!--    <div class="row">
+                                 </div> -->
+                              <table style="margin: 20px auto;">
+                                 <tbody>
+                                    <tr style="text-align: center">
+                                       <td style="text-align: center">
+                                          position: 5
+                                          <h3 class="bulbs">
+                                             <!-- <img data-id="1" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                                <img data-id="2" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                                <img data-id="3" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                                <img data-id="4" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                                <img data-id="5" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                                <img data-id="6" class="bulb win" src="https://hrcdn.net/hackerrank/assets/bidding-bottle-b1bfea113c4580062580835b5bf45320.png" height="48">
+                                                <img data-id="7" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                                <img data-id="8" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                                <img data-id="9" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                                <img data-id="10" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                                <img data-id="11" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48"> -->
+                                             
+                                             
+                                             <img data-id="1" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                             
+                                             
+                                             
+                                             <img data-id="2" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                             
+                                             
+                                             
+                                             <img data-id="3" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                             
+                                             
+                                             
+                                             <img data-id="4" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                             
+                                             
+                                             
+                                             <img data-id="5" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                             
+                                             
+                                             
+                                             <img data-id="6" class="bulb win" src="https://hrcdn.net/hackerrank/assets/bidding-bottle-b1bfea113c4580062580835b5bf45320.png" height="48">
+                                             
+                                             
+                                             
+                                             <img data-id="7" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                             
+                                             
+                                             
+                                             <img data-id="8" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                             
+                                             
+                                             
+                                             <img data-id="9" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                             
+                                             
+                                             
+                                             <img data-id="10" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                             
+                                             
+                                             
+                                             <img data-id="11" class="bulb" src="https://hrcdn.net/hackerrank/assets/bidding-blank-4b562ef1eaecd2736cbd40e96d0fc32d.png" height="48">
+                                             
+                                             
+                                          </h3>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <div style="text-align: center;">
+                                 <h3>Current Bid</h3>
+                                 <p>[ Bid #<span class="bid-number">0</span> ]</p>
+                              </div>
+                              <br>
+                              <div style="text-align: center;">
+                                 <form action="" method = "POST">
+                                    <label for="bid">Enter you valid bid:</label>
+                                    <input type="number" id="bid" name="bid" min=1 max=100 required=True>
+                                    <input type="submit">
+                                 </form>
+                              </div>
+                              <br><br>
+                              <table style="margin: 2px auto; width: 80%">
+                                 <tbody>
+                                    <tr style="text-align: center">
+                                       <td style="text-align: center">
+                                          <span class="player-1">player1</span>'s bid
+                                       </td>
+                                       <td style="text-align: center">
+                                          <span class="player-2">player2</span>'s bid
+                                       </td>
+                                    </tr>
+                                    <tr style="text-align: center">
+                                       <td style="text-align: center">
+                                          <h4 class="player1_current_bid"></h4>
+                                       </td>
+                                       <td style="text-align: center">
+                                          <h4 class="player2_current_bid"></h4>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <span style="font-weight:bold"></span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="hide controls text-center" style="display: block;">
+                  <div class="game-buttons btn-group">
+                     <a id="step-backward" class="cursor btn"><i class="icon-fast-backward"></i></a>
+                     <a class="hide cursor btn" id="pause"><i class="icon-pause"></i></a>
+                     <a id="play" class="cursor btn"><i class="icon-play"></i></a>
+                     <a id="stop" class="cursor btn"><i class="icon-stop"></i></a>
+                     <a id="step-forward" class="cursor btn"><i class="icon-fast-forward"></i></a>
+                  </div>
+               </div>
+               <div class="game-info-message-wrap">
+                  <p style="text-align:center; width: 100%; padding-bottom: 10px;font-size: 16px;font-weight: 600;" class="game-info-message"></p>
+               </div>
+               <p class="hide download-wrap text-center margin-large top bottom" style="display: block;">
+                  <!--                 <a class="download cursor btn btn-line" target="_blank" href="https://www.hackerrank.com/download/cntmoves/undefined"><i class="icon-download"></i>Download moves as file <i class="icon-download-alt icon-white"></i></a> -->
+               </p>
+            </div>
+         </div>
+         <div class="decide-winner hidden">
+            <div></div>
+         </div>
+      </div>
+      <!-- partial -->
+      <script  src="/static/js/script.js"></script>
+      <!-- <script>
+         function openNav() {
+           document.getElementById("myNav").style.width = "100%";
+         }
+         
+         function closeNav() {
+           document.getElementById("myNav").style.width = "0%";
+         }
+         </script> -->
+   </body>
+</html>
